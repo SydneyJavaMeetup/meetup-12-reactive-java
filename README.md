@@ -29,10 +29,10 @@ Ethos, vibe
 “Before we get into the tech talks, are there any job shoutouts?”
 
 
-Meetup
+# Talks
 
-# Reactive Coding in Java
+## Reactive Coding in Java
 Over to Dana and Reynaldo!
 
-# Intro to the Reactive Java Driver for MongoDB
+## Intro to the Reactive Java Driver for MongoDB
 
