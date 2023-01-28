@@ -1,4 +1,5 @@
-# Sydney Java Meet-Up #12 - Reactive Programming in Java!
+# Sydney Java Meet-Up #12
+## Reactive Programming in Java!
 https://www.meetup.com/sydney-java/events/290471569/
 
 ### Program
