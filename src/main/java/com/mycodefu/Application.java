@@ -1,4 +1,4 @@
-package com;
+package com.mycodefu;
 
 import io.micronaut.runtime.Micronaut;
 

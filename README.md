@@ -37,3 +37,8 @@ Over to Dana and Reynaldo!
 
 ## Intro to the Reactive Java Driver for MongoDB
 
+### Creating project
+
+Setup Micronaut: https://guides.micronaut.io/latest/creating-your-first-micronaut-app-maven-java.html
+
+
