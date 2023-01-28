@@ -10,7 +10,7 @@ Presenting reactive programming as a paradigm using Java and going through the a
 by Dana Dabbagh + Reynaldo Rojas, Technical Leads @ Lexicon  
 7:05pm - 25 minute break  
 7:30pm - Intro to the Reactive MongoDB Java Driver  
-A quick tour of what you can do with MongoDB's reactive driver. Building a microservice with JAX-RS async and reactive Mongo.
+A quick tour of what you can do with MongoDB's reactive driver. Building a microservice with JAX-RS async and reactive Mongo.  
 8pm Event Finish
 
 ### Intro
