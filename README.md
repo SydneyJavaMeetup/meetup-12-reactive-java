@@ -5,7 +5,7 @@ https://www.meetup.com/sydney-java/events/290471569/
 ### Program
 6pm - Networking/Drinks/Food  
 6:30pm - Event Intro and Job Shouts  
-6:35pm - Reactive Coding in Java
+6:35pm - Reactive Coding in Java  
 Presenting reactive programming as a paradigm using Java and going through the advantages, use cases and example implementation.
 by Dana Dabbagh + Reynaldo Rojas, Technical Leads @ Lexicon  
 7:05pm - 25 minute break  
