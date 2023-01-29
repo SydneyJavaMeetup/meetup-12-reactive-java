@@ -13,6 +13,7 @@ import org.junit.jupiter.api.Test;
 import reactor.core.publisher.Flux;
 
 import java.time.Duration;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -31,15 +32,26 @@ public class HelloReactiveControllerTest {
     public void setup() {
         MongoCollection<Person> personCollection = mongoClient.getDatabase("people").getCollection("person", Person.class);
         Flux.from(personCollection.deleteMany(new BasicDBObject())).blockFirst(Duration.ofSeconds(5));
-        Flux.from(personCollection.insertOne(new Person("Luke"))).blockFirst(Duration.ofSeconds(5));
+        Flux.from(personCollection.insertMany(List.of(
+                new Person("Luke"),
+                new Person("Jett")
+        ))).blockFirst(Duration.ofSeconds(5));
     }
 
     @Test
-    public void testHello() {
+    public void testGetOne() {
         HttpRequest<String> request = HttpRequest.GET("/hello/reactive/Luke");
         String body = client.toBlocking().retrieve(request);
 
         assertNotNull(body);
         assertEquals("{\"name\":\"Luke\"}", body);
+    }
+    @Test
+    public void testGetAll() {
+        HttpRequest<String> request = HttpRequest.GET("/hello/reactive");
+        String body = client.toBlocking().retrieve(request);
+
+        assertNotNull(body);
+        assertEquals("[{\"name\":\"Luke\"},{\"name\":\"Jett\"}]", body);
     }
 }
