@@ -15,8 +15,8 @@
 
   <properties>
     <packaging>jar</packaging>
-    <jdk.version>11</jdk.version>
-    <release.version>11</release.version>
+    <jdk.version>19</jdk.version>
+    <release.version>19</release.version>
     <micronaut.version>3.8.3</micronaut.version>
     <micronaut.runtime>netty</micronaut.runtime>
     <exec.mainClass>com.mycodefu.Application</exec.mainClass>
@@ -30,6 +30,11 @@
   </repositories>
 
   <dependencies>
+    <dependency>
+        <groupId>io.projectreactor</groupId>
+        <artifactId>reactor-core</artifactId>
+        <scope>compile</scope>
+    </dependency>
     <dependency>
       <groupId>io.micronaut</groupId>
       <artifactId>micronaut-inject</artifactId>
@@ -107,6 +112,8 @@
             <arg>-Amicronaut.processing.group=com</arg>
             <arg>-Amicronaut.processing.module=mycodefu</arg>
           </compilerArgs>
+          <source>19</source>
+          <target>19</target>
         </configuration>
       </plugin>
     </plugins>
