@@ -37,8 +37,12 @@ Over to Dana and Reynaldo!
 
 ## Intro to the Reactive Java Driver for MongoDB
 
-### Creating project
+### Creating hello world project
 
-Setup Micronaut: https://guides.micronaut.io/latest/creating-your-first-micronaut-app-maven-java.html
+##### Driver
+https://www.mongodb.com/docs/drivers/reactive-streams/  
+https://github.com/mongodb/mongo-java-driver/tree/master/driver-reactive-streams  
 
-
+##### Making Reactive Nicer! - Project Reactor
+https://projectreactor.io/  
+https://github.com/reactor/reactor-core  
