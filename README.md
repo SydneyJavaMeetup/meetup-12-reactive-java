@@ -90,4 +90,5 @@ Add Mongo Driver:
 </dependency>
 ```
 
-Note: Comes with Project Reactor - use the awesome APIs to abstract away the cumbersome Publisher/Subscriber interfaces. 
+Note: Comes with Project Reactor - use the awesome APIs to abstract away the cumbersome Publisher/Subscriber interfaces.  
+https://github.com/reactor/reactor-core
