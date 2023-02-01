@@ -84,11 +84,65 @@ https://github.com/mongodb/mongo-java-driver/tree/master/driver-reactive-streams
 Add Mongo Driver:
 ```
 <dependency>
-  <groupId>org.mongodb</groupId>
-  <artifactId>mongodb-driver-reactivestreams</artifactId>
-  <version>4.8.0</version>
+    <groupId>org.mongodb</groupId>
+    <artifactId>mongodb-driver-reactivestreams</artifactId>
+    <version>4.8.0</version>
 </dependency>
 ```
 
-Note: Comes with Project Reactor - use the awesome APIs to abstract away the cumbersome Publisher/Subscriber interfaces.  
+Note: Comes with a transitive dependency on Project Reactor - you can use the awesome APIs to abstract away the cumbersome Publisher/Subscriber interfaces.
 https://github.com/reactor/reactor-core
+
+```
+<dependency>
+    <groupId>io.projectreactor</groupId>
+    <artifactId>reactor-core</artifactId>
+    <version>3.5.0</version>
+</dependency>
+```
+
+e.g. read from the cursor in batches
+```
+package com.mycodefu;
+
+import com.github.javafaker.Faker;
+import com.mongodb.client.result.DeleteResult;
+import com.mongodb.client.result.InsertManyResult;
+import com.mongodb.reactivestreams.client.MongoClient;
+import com.mongodb.reactivestreams.client.MongoClients;
+import com.mongodb.reactivestreams.client.MongoCollection;
+import org.bson.BsonDocument;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+
+import java.util.List;
+import java.util.Objects;
+
+public class Main {
+    public static void main(String[] args) {
+        MongoClient mongoClient = MongoClients.create();
+        MongoCollection<Person> collection = mongoClient.getDatabase("test").getCollection("people", Person.class);
+
+        DeleteResult deleteResult = Mono.from(collection.deleteMany(new BsonDocument())).block();
+        assert(Objects.requireNonNull(deleteResult).wasAcknowledged());
+
+        List<Person> people = Flux.range(0, 101).map(i -> new Person(Faker.instance().name().fullName())).collectList().block();
+        InsertManyResult result = Mono.from(collection.insertMany(people)).block();
+        assert(Objects.requireNonNull(result).wasAcknowledged());
+
+        Flux.from(collection.find()).buffer(20).doOnNext(System.out::println).blockLast();
+
+        System.out.println("Hello Sydney Java Meetup!");
+    }
+}
+```
+
+
+You could also use Faker for fun for test data names:
+```
+<dependency>
+    <groupId>com.github.javafaker</groupId>
+    <artifactId>javafaker</artifactId>
+    <version>1.0.2</version>
+</dependency>
+```
