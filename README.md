@@ -22,8 +22,8 @@ Quick acknowledgement of:
 Ethos, vibe
 * openness
 * inclusiveness
-* learning
-* no experts, we're a community of peers rather than a mixture of experts and novices
+* learning through code, the meetup is organised by coders for coders, with a focus on practical skills and real experiences
+* no experts, we're a community of peers all learning together
 * supportiveness, we're here for each other
 
 ### Job Shouts
