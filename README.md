@@ -146,3 +146,6 @@ You could also use Faker for fun for test data names:
     <version>1.0.2</version>
 </dependency>
 ```
+
+More useful example:  
+https://github.com/Jett59/reactive-mongo-test
